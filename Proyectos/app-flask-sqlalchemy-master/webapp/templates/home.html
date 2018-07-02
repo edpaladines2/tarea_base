@@ -1,19 +1,17 @@
 <html>
   <body>
-    <h1>Agregar Estudiante </h1>
+    <h1>Agregar Libro </h1>
     <form method="POST" action="/">
-      <input type="text" name="txtcedula" placeholder="Ingrese su cedula">
-      <input type="text" name="txtnombre" placeholder="Ingrese su nombre">
-      <input type="text" name="txtapellido" placeholder="Ingrese su apellido">
+      <input type="text" name="title">
       <input type="submit" value="Add">
     </form>
-    <h1>Estudiantes</h1>
+    <h1>Books</h1>
 
     <table>
-      {% for est in estu %}
+      {% for book in books %}
       <tr>
         <td>
-          <p>{{est.nombre}}</p>
+          <p>{{book.title}}</p>
         </td>
         <td>
           <form method="POST" action="./update">
