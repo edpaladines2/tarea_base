@@ -1,0 +1,57 @@
+<html>
+<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+    <h1>Agregar Estudiante </h1>
+      <form method="POST" action="/">
+        <div class="form-group">
+          <input type="text" class="form-control" name="txtcedula" placeholder="Ingrese su cedula">
+          <input type="text" class="form-control" name="txtnombre" placeholder="Ingrese su nombre">
+          <input type="text" class="form-control" name="txtapellido" placeholder="Ingrese su apellido">
+          <input type="submit" class="btn btn-primary" value="Agregar">
+        </div>
+      </form>
+     </div>
+      </div>
+    </div>
+    <div class="container">
+      
+    <h1>Estudiantes</h1>
+    <div class="row">
+    <table>
+      {% for est in estu %}
+      <tr>
+        <td>
+          <p>{{est.nombre}}</p>
+        </td>
+        <td>
+          <form method="POST" action="./update">
+            <div class="form-group">
+            <input type="hidden" value="{{est.cedula}}" name="txtcedula">
+            <input type="text" class="form-control" value="{{est.nombre}}" name="txtnombre">
+            <input type="text" class="form-control" value="{{est.apellido}}" name="txtapellido">
+            <input type="submit" class= "btn btn-primary" value="Update">
+            </div>
+          </form>
+        </td>
+        <td>
+            <form method="POST" action="./delete" style="display: inline">
+              <div class="form-group"></div>
+              <input type="hidden" value="{{est.cedula}}" name="txtcedula">
+              <input type="submit" class= "btn btn-primary" value="Delete">
+              </div>
+            </form>
+          </td>
+       </tr>
+      {% endfor %}
+
+    </table>
+    </div>
+    </div>
+    <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src=js/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
